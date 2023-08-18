@@ -5,6 +5,8 @@
  */
 package ejemplovista;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Ivan
@@ -85,12 +87,19 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void jbCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCalcularActionPerformed
      
-        
-        String nroCadena = jtNro.getText();
+        try{
+             String nroCadena = jtNro.getText();
        int Nro = Integer.parseInt(nroCadena);
        double resul = Math.sqrt(Nro);
        jlResult.setText("Resultado " + resul);
        
+       
+        }catch(NumberFormatException nf){
+            JOptionPane.showMessageDialog(this, "Error solo se aceptan numeros");
+            
+         jtNro.requestFocus();
+            
+        }
        
        
        
